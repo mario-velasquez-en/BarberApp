@@ -92,9 +92,16 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             FlatButton(
-              child: Text("Flat Button"), onPressed: () {Navigator.push(
+              child: Text("Faq Route"), onPressed: () {Navigator.push(
                   context, 
                   MaterialPageRoute(builder: (context) => FaqPage()),
+                );
+              },
+            ),
+            FlatButton(
+              child: Text("Receipt Route"), onPressed: () {Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => ReceiptPage()),
                 );
               },
             ),
@@ -116,6 +123,34 @@ class FaqPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("FAQ"),
+      ),
+      body: 
+        Column(children: <Widget>[
+          Text("Q1. Why should I use this app?\m The main purpose for this application consist in being an easy way to make an appointment for clients to get a haircut."),
+          Text("Q2. What kind of haircuts do you do?\n Everything."),
+          Text("Q3. What is the price of a haircut? \n The Price is around 15 - 20 dollars plus any kind of haircut you want and any addition feature you can add it in the comment section"),
+        ],
+
+      ),
+    );
+  }
+}
+
+
+class ReceiptPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("FAQ"),
+      ),
+      body: 
+        Column(children: <Widget>[
+
+        Text("Receipt: \n Amount: 15.00\n Tip: 5.00 \n Cut: Low Fade \n Design: N/a \n Comments: Please the top a bit longer not too short.\n Total: 25.00 ")
+
+        ],
+
       ),
     );
   }
