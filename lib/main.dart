@@ -91,12 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            FlatButton(
+              child: Text("Flat Button"), onPressed: () {Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => FaqPage()),
+                );
+              },
             ),
           ],
         ),
@@ -106,6 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class FaqPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("FAQ"),
+      ),
     );
   }
 }
