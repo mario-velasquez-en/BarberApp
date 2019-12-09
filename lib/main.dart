@@ -109,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-
             FlatButton(
               child: Text("Schedule Route"),
               onPressed: () {
@@ -174,7 +173,8 @@ class FaqPage extends StatelessWidget {
                       color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
                 ),
                 TextSpan(
-                  text: 'As low as ten dollars to infinity based on your tip ;)\n',
+                  text:
+                      'As low as ten dollars to infinity based on your tip ;)\n',
                   style: TextStyle(
                       color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
                 ),
@@ -233,9 +233,7 @@ class ReceiptPage extends StatelessWidget {
   }
 }
 
-
 class Schedule extends StatefulWidget {
-
   @override
   _ScheduleState createState() => _ScheduleState();
 }
@@ -247,36 +245,36 @@ class _ScheduleState extends State<Schedule> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Scheduling"),        
+        title: Text("Scheduling"),
       ),
-    body: Center(
-      child: DropdownButton<String>(
-        value: dropdownValue,
-        icon: Icon(Icons.arrow_downward),
-        iconSize: 24,
-        elevation: 16,
-        style: TextStyle(
-          color: Colors.deepPurple
-        ),
-        underline: Container(
-          height: 2,
-          color: Colors.deepPurpleAccent,
-        ),
-        onChanged: (String newValue) {
-          setState(() {
-            dropdownValue = newValue;
-          });
-        },
-        items: <String>['One', 'Low Fade', 'Rapado', 'Trasquilado']
-          .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          })
-          .toList(),
+      body: ListView(
+        children: <Widget>[
+          Image.network("http://www.pngall.com/wp-content/uploads/1/2019-Calendar-PNG-Photo.png"),
+          DropdownButton<String>(
+            value: dropdownValue,
+            icon: Icon(Icons.arrow_downward),
+            iconSize: 24,
+            elevation: 16,
+            style: TextStyle(color: Colors.deepPurple),
+            underline: Container(
+              height: 2,
+              color: Colors.deepPurpleAccent,
+            ),
+            onChanged: (String newValue) {
+              setState(() {
+                dropdownValue = newValue;
+              });
+            },
+            items: <String>['One', 'Low Fade', 'Rapado', 'Trasquilado']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ],
       ),
-    ),
-  );
+    );
   }
 }
