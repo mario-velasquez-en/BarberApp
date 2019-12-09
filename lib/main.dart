@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'nextScreen.dart';
+import 'location.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -74,38 +77,111 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            
+            Image.network("https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg"),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                    "https://i.imgur.com/1rHTDAf.png")))),
+                  ),
+                  Text(
+                    'Daequan Smith',
+                  ),
+                ]),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      child: Text("Experience: 7 Years"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      child: Text("Years at Company: 3 Years"),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: MaterialButton(
+                          textColor: Colors.black,
+                          color: Colors.orange,
+                          child: Text("Look At Profile"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BarberBio()),
+                            );
+                          },
+                        ))
+                  ],
+                )
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                    "https://i.imgur.com/1rHTDAf.png")))),
+                  ),
+                  Text(
+                    'Daequan Smith',
+                  ),
+                  
+                ]),
+                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      child: Text("Experience: 7 Years"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      child: Text("Years at Company: 3 Years"),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: MaterialButton(
+                          textColor: Colors.black,
+                          color: Colors.orange,
+                          child: Text("Look At Profile"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BarberBio()),
+                            );
+                          },
+                        ))
+                  ],
+                ),
+              ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
