@@ -20,92 +20,181 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.orange,
       ),
-      home: MyHomePage(title: 'BarberApp'),
+      home: BarberBio(title: 'BarberApp'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+class BarberBio extends StatefulWidget {
+  BarberBio({Key key, this.title}) : super(key: key);
 
   final String title;
-
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _BarberBioState createState() => _BarberBioState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+class _BarberBioState extends State<BarberBio> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Container(
+                    width: 250,
+                    height: 250,
+                    padding: EdgeInsets.fromLTRB(100, 100, 100, 100),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: new DecorationImage(
+                            fit: BoxFit.fill,
+                            image: new NetworkImage(
+                                "https://i.imgur.com/1rHTDAf.png")))),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Stack(
+                  children: <Widget>[
+                    // Stroked text as border.
+                    Text(
+                      'Gitsby!',
+                      style: TextStyle(
+                        fontSize: 40,
+                        foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 6
+                          ..color = Colors.orange,
+                      ),
+                    ),
+                    // Solid text as fill.
+                    Text(
+                      'Gitsby!',
+                      style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Gitsby is here to help you in order to get an amazing haircut!",
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  " 7 Years in Workforce - 3 Years at current job - Engineering",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(50, 40, 10, 10),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Icon(Icons.done),
+                Text("   Maintained a professional environment")
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Icon(Icons.done),
+                Text("   Cut, Shape, trimmed and tapered hair")
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Icon(Icons.done),
+                Text("   Providea clean environment")
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(5),
+            ),
+            Row(
+              children: <Widget>[
+                Text("Gallery", style: TextStyle(height: 2, fontSize: 50))
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Image.network(
+                  "https://www.menshairstylesnow.com/wp-content/uploads/2017/04/Undercut-Fade-with-Thick-Textured-Hair.jpg",
+                  width: 175,
+                  height: 175,
+                ),
+                Image.network(
+                  "https://hairstyleonpoint.com/wp-content/uploads/2014/10/39980f63ebaeed4790455e216e259300.jpg",
+                  width: 175,
+                  height: 175,
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Image.network(
+                  "https://www.menshairstyleguide.com/wp-content/uploads/2014/08/barber-haircuts-10.jpg",
+                  width: 175,
+                  height: 175,
+                ),
+                Image.network(
+                  "http://alphahairstyles.com/wp-content/uploads/2015/11/barber_haircut_2.jpg",
+                  width: 175,
+                  height: 175,
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                FlatButton(
+                  color: Colors.orange,
+                  textColor: Colors.black,
+                  disabledColor: Colors.blue,
+                  disabledTextColor: Colors.blue,
+                  padding: EdgeInsets.all(15.0),
+                  splashColor: Colors.white,
+                  onPressed: () {
+                    // *************
+                  },
+                  child: Text(
+                    "Make an Appointment with Gitsby ",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    ); // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
