@@ -92,16 +92,30 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             FlatButton(
-              child: Text("Faq Route"), onPressed: () {Navigator.push(
-                  context, 
+              child: Text("Faq Route"),
+              onPressed: () {
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => FaqPage()),
                 );
               },
             ),
             FlatButton(
-              child: Text("Receipt Route"), onPressed: () {Navigator.push(
-                  context, 
+              child: Text("Receipt Route"),
+              onPressed: () {
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => ReceiptPage()),
+                );
+              },
+            ),
+
+            FlatButton(
+              child: Text("Schedule Route"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Schedule()),
                 );
               },
             ),
@@ -124,34 +138,145 @@ class FaqPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("FAQ"),
       ),
-      body: 
-        Column(children: <Widget>[
-          Text("Q1. Why should I use this app?\m The main purpose for this application consist in being an easy way to make an appointment for clients to get a haircut."),
-          Text("Q2. What kind of haircuts do you do?\n Everything."),
-          Text("Q3. What is the price of a haircut? \n The Price is around 15 - 20 dollars plus any kind of haircut you want and any addition feature you can add it in the comment section"),
+      body: ListView(
+        children: <Widget>[
+          RichText(
+            text: TextSpan(
+              style: DefaultTextStyle.of(context).style,
+              children: <TextSpan>[
+                TextSpan(
+                  text: '       FAQ\n\n',
+                  style: TextStyle(color: Colors.orange.withOpacity(0.9)),
+                ),
+                TextSpan(
+                  text: 'Q1. Why use this app?\n',
+                  style: TextStyle(
+                      color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
+                ),
+                TextSpan(
+                  text: 'Porque es la mejor app que hay\n',
+                  style: TextStyle(
+                      color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
+                ),
+                TextSpan(
+                  text: '\n\nQ2. What kind of cuts?\n',
+                  style: TextStyle(
+                      color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
+                ),
+                TextSpan(
+                  text: 'We do them all\n',
+                  style: TextStyle(
+                      color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
+                ),
+                TextSpan(
+                  text: '\n\nQ3. Price for a cut?\n',
+                  style: TextStyle(
+                      color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
+                ),
+                TextSpan(
+                  text: 'As low as ten dollars to infinity based on your tip ;)\n',
+                  style: TextStyle(
+                      color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
+                ),
+              ],
+            ),
+          ),
         ],
-
       ),
     );
   }
 }
-
 
 class ReceiptPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("FAQ"),
+        title: Text("Receipt"),
       ),
-      body: 
-        Column(children: <Widget>[
-
-        Text("Receipt: \n Amount: 15.00\n Tip: 5.00 \n Cut: Low Fade \n Design: N/a \n Comments: Please the top a bit longer not too short.\n Total: 25.00 ")
-
+      body: ListView(
+        children: <Widget>[
+          RichText(
+            text: TextSpan(
+              style: DefaultTextStyle.of(context).style,
+              children: <TextSpan>[
+                TextSpan(
+                  text: '    Receipt\n\n',
+                  style: TextStyle(color: Colors.orange.withOpacity(0.9)),
+                ),
+                TextSpan(
+                  text: 'Amount:  15.00\n',
+                  style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                ),
+                TextSpan(
+                  text: 'Tip:     5.00\n',
+                  style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                ),
+                TextSpan(
+                  text: 'Cut: Low Fade\n',
+                  style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                ),
+                TextSpan(
+                  text: 'Design:  N/A\n\n',
+                  style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                ),
+                TextSpan(
+                  text: 'Total:   20.00\n',
+                  style: TextStyle(color: Colors.black.withOpacity(1.0)),
+                ),
+              ],
+            ),
+          ),
         ],
-
       ),
     );
+  }
+}
+
+
+class Schedule extends StatefulWidget {
+
+  @override
+  _ScheduleState createState() => _ScheduleState();
+}
+
+class _ScheduleState extends State<Schedule> {
+  String dropdownValue = 'One';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Scheduling"),        
+      ),
+    body: Center(
+      child: DropdownButton<String>(
+        value: dropdownValue,
+        icon: Icon(Icons.arrow_downward),
+        iconSize: 24,
+        elevation: 16,
+        style: TextStyle(
+          color: Colors.deepPurple
+        ),
+        underline: Container(
+          height: 2,
+          color: Colors.deepPurpleAccent,
+        ),
+        onChanged: (String newValue) {
+          setState(() {
+            dropdownValue = newValue;
+          });
+        },
+        items: <String>['One', 'Low Fade', 'Rapado', 'Trasquilado']
+          .map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          })
+          .toList(),
+      ),
+    ),
+  );
   }
 }
