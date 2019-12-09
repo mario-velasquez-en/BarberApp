@@ -383,38 +383,38 @@ class FaqPage extends StatelessWidget {
               children: <TextSpan>[
                 TextSpan(
                   text: '       FAQ\n\n',
-                  style: TextStyle(color: Colors.orange.withOpacity(0.9)),
+                  style: TextStyle(color: Colors.black.withOpacity(0.9)),
                 ),
                 TextSpan(
                   text: 'Q1. Why use this app?\n',
                   style: TextStyle(
-                      color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
+                      color: Colors.black.withOpacity(1.0), fontSize: 30),
                 ),
                 TextSpan(
                   text: 'Porque es la mejor app que hay\n',
                   style: TextStyle(
-                      color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
+                      color: Colors.black.withOpacity(0.7), fontSize: 25),
                 ),
                 TextSpan(
                   text: '\n\nQ2. What kind of cuts?\n',
                   style: TextStyle(
-                      color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
+                      color: Colors.black.withOpacity(1.0), fontSize: 30),
                 ),
                 TextSpan(
                   text: 'We do them all\n',
                   style: TextStyle(
-                      color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
+                      color: Colors.black.withOpacity(0.7), fontSize: 25),
                 ),
                 TextSpan(
                   text: '\n\nQ3. Price for a cut?\n',
                   style: TextStyle(
-                      color: Colors.deepOrange.withOpacity(1.0), fontSize: 30),
+                      color: Colors.black.withOpacity(1.0), fontSize: 30),
                 ),
                 TextSpan(
                   text:
                       'As low as ten dollars to infinity based on your tip ;)\n',
                   style: TextStyle(
-                      color: Colors.deepOrange.withOpacity(0.7), fontSize: 25),
+                      color: Colors.black.withOpacity(0.7), fontSize: 25),
                 ),
               ],
             ),
